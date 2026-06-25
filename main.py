@@ -5,6 +5,7 @@ from mydb import *
 from myapi import API
 class NLPApp:
     def __init__(self):
+        # self.lang_result = None
         self.dbo=Database()
         self.apio=API()
         self.root = Tk()
@@ -214,6 +215,10 @@ class NLPApp:
         heading.pack(pady=(30, 30))
         heading.configure(font=('verdana', 19, 'bold'))
 
+        heading = Label(self.root, text="Detect among 50 languages", bg="#9e9e9e", fg="white")
+        heading.pack(pady=(14,14))
+        heading.configure(font=('verdana', 10, 'bold'))
+
         text = Label(self.root, text="Enter text", bg="#778899", fg="white")
         text.pack(pady=(10, 10))
         text.configure(font=('verdana', 10))
@@ -221,13 +226,14 @@ class NLPApp:
         self.text_input.pack(pady=(5, 10), ipady=4)
 
         analyse = Button(self.root, text="Detect Language", fg="black", bg="white", width=20, height=2,
-                         command=self.do_lang_analysis())
+                         command=self.do_lang_analysis)
         analyse.configure(font=('verdana', 10))
         analyse.pack(pady=(5, 10))
 
-        lang_result = Button(self.root, text="  ", fg="black", bg="#778899")
-        lang_result.configure(font=('verdana', 16))
-        lang_result.pack(pady=(10, 10))
+        self.lang_result = Button(self.root, text='', fg="black", bg="#778899")
+        self.lang_result.configure(font=('verdana', 13))
+        self.lang_result.pack(pady=(10, 10))
+
 
         back = Button(self.root, text="Go Back", fg="black", bg="white", width=17, height=1,
                         command=self.main_page_gui)
@@ -236,6 +242,11 @@ class NLPApp:
 
     def do_lang_analysis(self):
         pass
+        text = self.text_input.get()
+        result = self.apio.language_analysis(text)
+        txt = ''
+        txt = txt +'language --> '+ str(result['language']) + '\n'
+        self.lang_result['text'] = txt
 
 
 

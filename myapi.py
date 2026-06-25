@@ -28,8 +28,15 @@ class API:
         except Exception as error:
             print(f"\nConnection Error: {error}")
 
-    def language_analysis(self,text_to_analyze):
-        pass
+    def language_analysis(self,text):
+        api_url = 'https://api.api-ninjas.com/v1/textlanguage?text={}'.format(text)
+        response = requests.get(api_url, headers={'X-Api-Key': 'bcVzEVUestyWKfo1IZ3iPpgu8tIfZ7MJOXaSMY6g'})
+        if response.status_code == requests.codes.ok:
+            # print(response.text)
+            result=response.json()
+            return result
+        else:
+            print("Error:", response.status_code, response.text)
 
     def text_analysis(self,text1,text2):
         url = "https://api.api-ninjas.com/v1/textsimilarity"
