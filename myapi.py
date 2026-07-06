@@ -1,8 +1,11 @@
 import requests
 import urllib.parse
+import os
+from dotenv import load_dotenv
+load_dotenv()
 class API:
     def __init__(self):
-        self.api_key = 'bcVzEVUestyWKfo1IZ3iPpgu8tIfZ7MJOXaSMY6g'
+        self.api_key = os.getenv("my_api")
 
 
     def sentiment_analysis(self,text_to_analyze):
@@ -30,7 +33,7 @@ class API:
 
     def language_analysis(self,text):
         api_url = 'https://api.api-ninjas.com/v1/textlanguage?text={}'.format(text)
-        response = requests.get(api_url, headers={'X-Api-Key': 'bcVzEVUestyWKfo1IZ3iPpgu8tIfZ7MJOXaSMY6g'})
+        response = requests.get(api_url, headers={'X-Api-Key': os.getenv("my_api")})
         if response.status_code == requests.codes.ok:
             # print(response.text)
             result=response.json()

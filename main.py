@@ -3,13 +3,13 @@ from tkinter import *
 from tkinter import messagebox
 from mydb import *
 from myapi import API
-class NLPApp:
+class TextIQ:
     def __init__(self):
         # self.lang_result = None
         self.dbo=Database()
         self.apio=API()
         self.root = Tk()
-        self.root.title("NLP App")
+        self.root.title("TextIQ")
         self.root.geometry("350x600")
         self.root.resizable(width=0, height=0)
         self.root.iconbitmap("Resources/pic.ico")
@@ -22,7 +22,7 @@ class NLPApp:
 
     def login_gui(self):
         self.clear()
-        heading = Label(self.root, text="NLP App",bg="#778899",fg ="white")
+        heading = Label(self.root, text="TextIQ",bg="#778899",fg ="white")
         heading.pack(pady=(30,30))
         heading.configure(font=('verdana',24,'bold'))
 
@@ -55,7 +55,7 @@ class NLPApp:
 
     def register_gui(self):
         self.clear()
-        heading = Label(self.root, text="NLP App", bg="#778899", fg="white")
+        heading = Label(self.root, text="TextIQ", bg="#778899", fg="white")
         heading.pack(pady=(30, 30))
         heading.configure(font=('verdana', 24, 'bold'))
 
@@ -252,4 +252,4 @@ class NLPApp:
 
 
 
-nlp=NLPApp()
+app=TextIQ()
