@@ -56,6 +56,8 @@ TextIQ is a Python-based desktop NLP application built using Tkinter. It integra
 
 ### Text Similarity
 <img width="423" height="780" alt="image" src="https://github.com/user-attachments/assets/6ce50619-b182-48f8-8c89-169e3bae6aff" />
+<img width="426" height="773" alt="image" src="https://github.com/user-attachments/assets/d7fba519-01f0-44a4-aa18-51e8f13c7796" />
+
 
 
 
